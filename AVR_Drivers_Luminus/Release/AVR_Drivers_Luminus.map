@@ -129,7 +129,7 @@ LOAD e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xa4e
+.text           0x00000000      0xc66
  *(.vectors)
  .vectors       0x00000000       0x54 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -247,48 +247,51 @@ LOAD e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/
  .text.Sev_Multi
                 0x0000049c      0x1f6 ./HAL/SSG/SSG_Prog.o
                 0x0000049c                Sev_Multi
+ .text.SSG_Mult
+                0x00000692      0x218 ./HAL/SSG/SSG_Prog.o
+                0x00000692                SSG_Mult
  .text.LCD_voidSendData
-                0x00000692       0x42 ./HAL/LCD/LCD_Prog.o
-                0x00000692                LCD_voidSendData
+                0x000008aa       0x42 ./HAL/LCD/LCD_Prog.o
+                0x000008aa                LCD_voidSendData
  .text.LCD_voidWriteNumber
-                0x000006d4       0xf6 ./HAL/LCD/LCD_Prog.o
-                0x000006d4                LCD_voidWriteNumber
+                0x000008ec       0xf6 ./HAL/LCD/LCD_Prog.o
+                0x000008ec                LCD_voidWriteNumber
  .text.LCD_voidSendString
-                0x000007ca       0x26 ./HAL/LCD/LCD_Prog.o
-                0x000007ca                LCD_voidSendString
+                0x000009e2       0x26 ./HAL/LCD/LCD_Prog.o
+                0x000009e2                LCD_voidSendString
  .text.LCD_voidSendCommand
-                0x000007f0       0x42 ./HAL/LCD/LCD_Prog.o
-                0x000007f0                LCD_voidSendCommand
+                0x00000a08       0x42 ./HAL/LCD/LCD_Prog.o
+                0x00000a08                LCD_voidSendCommand
  .text.LCD_voidClearLCD
-                0x00000832        0x8 ./HAL/LCD/LCD_Prog.o
-                0x00000832                LCD_voidClearLCD
+                0x00000a4a        0x8 ./HAL/LCD/LCD_Prog.o
+                0x00000a4a                LCD_voidClearLCD
  .text.LCD_voidGoToXY
-                0x0000083a       0x18 ./HAL/LCD/LCD_Prog.o
-                0x0000083a                LCD_voidGoToXY
+                0x00000a52       0x18 ./HAL/LCD/LCD_Prog.o
+                0x00000a52                LCD_voidGoToXY
  .text.LCD_void_Init
-                0x00000852       0x50 ./HAL/LCD/LCD_Prog.o
-                0x00000852                LCD_void_Init
+                0x00000a6a       0x50 ./HAL/LCD/LCD_Prog.o
+                0x00000a6a                LCD_void_Init
  .text.KPD_u8GetPressedKey
-                0x000008a2       0xae ./HAL/KEYPAD/KPD_Prog.o
-                0x000008a2                KPD_u8GetPressedKey
- .text.main     0x00000950       0x2a ./APP/main.o
-                0x00000950                main
- .text.libgcc   0x0000097a       0x3e e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x0000097a                __mulsi3
- .text.libgcc   0x000009b8       0x18 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
-                0x000009b8                __udivmodqi4
- .text.libgcc   0x000009d0       0x36 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
-                0x000009d0                __divmodsi4
- .text.libgcc   0x00000a06        0x0 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000a06        0x0 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000a06        0x0 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000a06       0x44 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00000a06                __udivmodsi4
-                0x00000a4a                . = ALIGN (0x2)
+                0x00000aba       0xae ./HAL/KEYPAD/KPD_Prog.o
+                0x00000aba                KPD_u8GetPressedKey
+ .text.main     0x00000b68       0x2a ./APP/main.o
+                0x00000b68                main
+ .text.libgcc   0x00000b92       0x3e e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x00000b92                __mulsi3
+ .text.libgcc   0x00000bd0       0x18 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000bd0                __udivmodqi4
+ .text.libgcc   0x00000be8       0x36 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                0x00000be8                __divmodsi4
+ .text.libgcc   0x00000c1e        0x0 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000c1e        0x0 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000c1e        0x0 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000c1e       0x44 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000c1e                __udivmodsi4
+                0x00000c62                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000a4a        0x0 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000a4a                exit
-                0x00000a4a                _exit
+ .fini9         0x00000c62        0x0 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000c62                exit
+                0x00000c62                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -307,11 +310,11 @@ LOAD e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000a4a        0x4 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000c62        0x4 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000a4e                _etext = .
+                0x00000c66                _etext = .
 
-.data           0x00800060       0x3c load address 0x00000a4e
+.data           0x00800060       0x3c load address 0x00000c66
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -376,8 +379,8 @@ LOAD e:/imt mansoura/drive/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/
                 0x0080009d                tens
  *(COMMON)
                 0x0080009e                PROVIDE (__bss_end, .)
-                0x00000a4e                __data_load_start = LOADADDR (.data)
-                0x00000a8a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000c66                __data_load_start = LOADADDR (.data)
+                0x00000ca2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080009e        0x0
                 0x0080009e                PROVIDE (__noinit_start, .)

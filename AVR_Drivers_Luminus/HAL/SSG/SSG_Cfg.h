@@ -26,4 +26,11 @@
 #define ANODE			2
 
 
+typedef struct SSG {
+	u8 Copy_u8Port;
+	u8 num;
+	u8 Copy_u8PinLeft ;
+	u8 Copy_u8PinRight;
+}SSG;
+
 #endif /* HAL_SSG_SSG_CFG_H_ */
