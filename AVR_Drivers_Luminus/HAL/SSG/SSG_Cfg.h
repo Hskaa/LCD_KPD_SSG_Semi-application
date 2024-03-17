@@ -14,7 +14,7 @@
 						  3- PORTC
 						  4- PORTD */
 
-#define PORT_PINS	PORTA	/*1- PORTA
+#define PORT_PINS	PORTC	/*1- PORTA
 						  2- PORTB
 						  3- PORTC
 						  4- PORTD */

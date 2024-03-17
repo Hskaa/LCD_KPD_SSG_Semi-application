@@ -3,11 +3,11 @@ AVR_Drivers_Luminus.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000c66  00000000  00000000  00000094  2**1
+  0 .text         00000c64  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000003c  00800060  00000c66  00000cfa  2**0
+  1 .data         0000003c  00800060  00000c64  00000cf8  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000002  0080009c  0080009c  00000d36  2**0
+  2 .bss          00000002  0080009c  0080009c  00000d34  2**0
                   ALLOC
 
 Disassembly of section .text:
@@ -47,7 +47,7 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e6 e6       	ldi	r30, 0x66	; 102
+  66:	e4 e6       	ldi	r30, 0x64	; 100
   68:	fc e0       	ldi	r31, 0x0C	; 12
   6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
@@ -74,7 +74,7 @@ Disassembly of section .text:
   82:	b1 07       	cpc	r27, r17
   84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
   86:	0e 94 b4 05 	call	0xb68	; 0xb68 <main>
-  8a:	0c 94 31 06 	jmp	0xc62	; 0xc62 <_exit>
+  8a:	0c 94 30 06 	jmp	0xc60	; 0xc60 <_exit>
 
 0000008e <__bad_interrupt>:
   8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -527,7 +527,7 @@ Disassembly of section .text:
  3f6:	84 e0       	ldi	r24, 0x04	; 4
  3f8:	60 81       	ld	r22, Z
  3fa:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 3fe:	2b b3       	in	r18, 0x1b	; 27
+ 3fe:	25 b3       	in	r18, 0x15	; 21
  400:	81 e0       	ldi	r24, 0x01	; 1
  402:	90 e0       	ldi	r25, 0x00	; 0
  404:	02 c0       	rjmp	.+4      	; 0x40a <SSG_ON+0x90>
@@ -537,7 +537,7 @@ Disassembly of section .text:
  40c:	e2 f7       	brpl	.-8      	; 0x406 <SSG_ON+0x8c>
  40e:	80 95       	com	r24
  410:	82 23       	and	r24, r18
- 412:	8b bb       	out	0x1b, r24	; 27
+ 412:	85 bb       	out	0x15, r24	; 21
  414:	40 c0       	rjmp	.+128    	; 0x496 <SSG_ON+0x11c>
  416:	82 30       	cpi	r24, 0x02	; 2
  418:	a1 f0       	breq	.+40     	; 0x442 <SSG_ON+0xc8>
@@ -588,7 +588,7 @@ Disassembly of section .text:
  47a:	84 e0       	ldi	r24, 0x04	; 4
  47c:	60 81       	ld	r22, Z
  47e:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 482:	2b b3       	in	r18, 0x1b	; 27
+ 482:	25 b3       	in	r18, 0x15	; 21
  484:	81 e0       	ldi	r24, 0x01	; 1
  486:	90 e0       	ldi	r25, 0x00	; 0
  488:	02 c0       	rjmp	.+4      	; 0x48e <SSG_ON+0x114>
@@ -597,7 +597,7 @@ Disassembly of section .text:
  48e:	0a 95       	dec	r16
  490:	e2 f7       	brpl	.-8      	; 0x48a <SSG_ON+0x110>
  492:	28 2b       	or	r18, r24
- 494:	2b bb       	out	0x1b, r18	; 27
+ 494:	25 bb       	out	0x15, r18	; 21
  496:	1f 91       	pop	r17
  498:	0f 91       	pop	r16
  49a:	08 95       	ret
@@ -614,10 +614,10 @@ Disassembly of section .text:
  4ac:	c4 2e       	mov	r12, r20
  4ae:	82 2f       	mov	r24, r18
  4b0:	6a e0       	ldi	r22, 0x0A	; 10
- 4b2:	0e 94 e8 05 	call	0xbd0	; 0xbd0 <__udivmodqi4>
+ 4b2:	0e 94 e7 05 	call	0xbce	; 0xbce <__udivmodqi4>
  4b6:	80 93 9d 00 	sts	0x009D, r24
  4ba:	82 2f       	mov	r24, r18
- 4bc:	0e 94 e8 05 	call	0xbd0	; 0xbd0 <__udivmodqi4>
+ 4bc:	0e 94 e7 05 	call	0xbce	; 0xbce <__udivmodqi4>
  4c0:	90 93 9c 00 	sts	0x009C, r25
  4c4:	32 30       	cpi	r19, 0x02	; 2
  4c6:	09 f4       	brne	.+2      	; 0x4ca <Sev_Multi+0x2e>
@@ -645,7 +645,7 @@ Disassembly of section .text:
  4f6:	81 e0       	ldi	r24, 0x01	; 1
  4f8:	60 81       	ld	r22, Z
  4fa:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 4fe:	9b b3       	in	r25, 0x1b	; 27
+ 4fe:	95 b3       	in	r25, 0x15	; 21
  500:	01 e0       	ldi	r16, 0x01	; 1
  502:	10 e0       	ldi	r17, 0x00	; 0
  504:	98 01       	movw	r18, r16
@@ -658,15 +658,15 @@ Disassembly of section .text:
  512:	82 2f       	mov	r24, r18
  514:	80 95       	com	r24
  516:	89 23       	and	r24, r25
- 518:	8b bb       	out	0x1b, r24	; 27
- 51a:	8b b3       	in	r24, 0x1b	; 27
+ 518:	85 bb       	out	0x15, r24	; 21
+ 51a:	85 b3       	in	r24, 0x15	; 21
  51c:	02 c0       	rjmp	.+4      	; 0x522 <Sev_Multi+0x86>
  51e:	00 0f       	add	r16, r16
  520:	11 1f       	adc	r17, r17
  522:	ca 94       	dec	r12
  524:	e2 f7       	brpl	.-8      	; 0x51e <Sev_Multi+0x82>
  526:	80 2b       	or	r24, r16
- 528:	8b bb       	out	0x1b, r24	; 27
+ 528:	85 bb       	out	0x15, r24	; 21
  52a:	30 e2       	ldi	r19, 0x20	; 32
  52c:	c3 2e       	mov	r12, r19
  52e:	3e e4       	ldi	r19, 0x4E	; 78
@@ -690,7 +690,7 @@ Disassembly of section .text:
  558:	82 e0       	ldi	r24, 0x02	; 2
  55a:	60 81       	ld	r22, Z
  55c:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 560:	9b b3       	in	r25, 0x1b	; 27
+ 560:	95 b3       	in	r25, 0x15	; 21
  562:	01 e0       	ldi	r16, 0x01	; 1
  564:	10 e0       	ldi	r17, 0x00	; 0
  566:	98 01       	movw	r18, r16
@@ -703,15 +703,15 @@ Disassembly of section .text:
  574:	82 2f       	mov	r24, r18
  576:	80 95       	com	r24
  578:	89 23       	and	r24, r25
- 57a:	8b bb       	out	0x1b, r24	; 27
- 57c:	8b b3       	in	r24, 0x1b	; 27
+ 57a:	85 bb       	out	0x15, r24	; 21
+ 57c:	85 b3       	in	r24, 0x15	; 21
  57e:	02 c0       	rjmp	.+4      	; 0x584 <Sev_Multi+0xe8>
  580:	00 0f       	add	r16, r16
  582:	11 1f       	adc	r17, r17
  584:	ca 94       	dec	r12
  586:	e2 f7       	brpl	.-8      	; 0x580 <Sev_Multi+0xe4>
  588:	80 2b       	or	r24, r16
- 58a:	8b bb       	out	0x1b, r24	; 27
+ 58a:	85 bb       	out	0x15, r24	; 21
  58c:	20 e2       	ldi	r18, 0x20	; 32
  58e:	c2 2e       	mov	r12, r18
  590:	2e e4       	ldi	r18, 0x4E	; 78
@@ -735,7 +735,7 @@ Disassembly of section .text:
  5ba:	83 e0       	ldi	r24, 0x03	; 3
  5bc:	60 81       	ld	r22, Z
  5be:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 5c2:	9b b3       	in	r25, 0x1b	; 27
+ 5c2:	95 b3       	in	r25, 0x15	; 21
  5c4:	01 e0       	ldi	r16, 0x01	; 1
  5c6:	10 e0       	ldi	r17, 0x00	; 0
  5c8:	98 01       	movw	r18, r16
@@ -748,15 +748,15 @@ Disassembly of section .text:
  5d6:	82 2f       	mov	r24, r18
  5d8:	80 95       	com	r24
  5da:	89 23       	and	r24, r25
- 5dc:	8b bb       	out	0x1b, r24	; 27
- 5de:	8b b3       	in	r24, 0x1b	; 27
+ 5dc:	85 bb       	out	0x15, r24	; 21
+ 5de:	85 b3       	in	r24, 0x15	; 21
  5e0:	02 c0       	rjmp	.+4      	; 0x5e6 <Sev_Multi+0x14a>
  5e2:	00 0f       	add	r16, r16
  5e4:	11 1f       	adc	r17, r17
  5e6:	ca 94       	dec	r12
  5e8:	e2 f7       	brpl	.-8      	; 0x5e2 <Sev_Multi+0x146>
  5ea:	80 2b       	or	r24, r16
- 5ec:	8b bb       	out	0x1b, r24	; 27
+ 5ec:	85 bb       	out	0x15, r24	; 21
  5ee:	90 e2       	ldi	r25, 0x20	; 32
  5f0:	c9 2e       	mov	r12, r25
  5f2:	9e e4       	ldi	r25, 0x4E	; 78
@@ -780,7 +780,7 @@ Disassembly of section .text:
  61c:	84 e0       	ldi	r24, 0x04	; 4
  61e:	60 81       	ld	r22, Z
  620:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 624:	9b b3       	in	r25, 0x1b	; 27
+ 624:	95 b3       	in	r25, 0x15	; 21
  626:	01 e0       	ldi	r16, 0x01	; 1
  628:	10 e0       	ldi	r17, 0x00	; 0
  62a:	98 01       	movw	r18, r16
@@ -793,15 +793,15 @@ Disassembly of section .text:
  638:	82 2f       	mov	r24, r18
  63a:	80 95       	com	r24
  63c:	89 23       	and	r24, r25
- 63e:	8b bb       	out	0x1b, r24	; 27
- 640:	8b b3       	in	r24, 0x1b	; 27
+ 63e:	85 bb       	out	0x15, r24	; 21
+ 640:	85 b3       	in	r24, 0x15	; 21
  642:	02 c0       	rjmp	.+4      	; 0x648 <Sev_Multi+0x1ac>
  644:	00 0f       	add	r16, r16
  646:	11 1f       	adc	r17, r17
  648:	ca 94       	dec	r12
  64a:	e2 f7       	brpl	.-8      	; 0x644 <Sev_Multi+0x1a8>
  64c:	80 2b       	or	r24, r16
- 64e:	8b bb       	out	0x1b, r24	; 27
+ 64e:	85 bb       	out	0x15, r24	; 21
  650:	80 e2       	ldi	r24, 0x20	; 32
  652:	c8 2e       	mov	r12, r24
  654:	8e e4       	ldi	r24, 0x4E	; 78
@@ -816,13 +816,13 @@ Disassembly of section .text:
  668:	84 e0       	ldi	r24, 0x04	; 4
  66a:	60 81       	ld	r22, Z
  66c:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 670:	8b b3       	in	r24, 0x1b	; 27
+ 670:	85 b3       	in	r24, 0x15	; 21
  672:	e8 2a       	or	r14, r24
- 674:	eb ba       	out	0x1b, r14	; 27
- 676:	8b b3       	in	r24, 0x1b	; 27
+ 674:	e5 ba       	out	0x15, r14	; 21
+ 676:	85 b3       	in	r24, 0x15	; 21
  678:	00 95       	com	r16
  67a:	08 23       	and	r16, r24
- 67c:	0b bb       	out	0x1b, r16	; 27
+ 67c:	05 bb       	out	0x15, r16	; 21
  67e:	c6 01       	movw	r24, r12
  680:	01 97       	sbiw	r24, 0x01	; 1
  682:	f1 f7       	brne	.-4      	; 0x680 <Sev_Multi+0x1e4>
@@ -845,10 +845,10 @@ Disassembly of section .text:
  6a0:	29 81       	ldd	r18, Y+1	; 0x01
  6a2:	82 2f       	mov	r24, r18
  6a4:	6a e0       	ldi	r22, 0x0A	; 10
- 6a6:	0e 94 e8 05 	call	0xbd0	; 0xbd0 <__udivmodqi4>
+ 6a6:	0e 94 e7 05 	call	0xbce	; 0xbce <__udivmodqi4>
  6aa:	80 93 9d 00 	sts	0x009D, r24
  6ae:	82 2f       	mov	r24, r18
- 6b0:	0e 94 e8 05 	call	0xbd0	; 0xbd0 <__udivmodqi4>
+ 6b0:	0e 94 e7 05 	call	0xbce	; 0xbce <__udivmodqi4>
  6b4:	90 93 9c 00 	sts	0x009C, r25
  6b8:	88 81       	ld	r24, Y
  6ba:	82 30       	cpi	r24, 0x02	; 2
@@ -877,7 +877,7 @@ Disassembly of section .text:
  6ec:	81 e0       	ldi	r24, 0x01	; 1
  6ee:	60 81       	ld	r22, Z
  6f0:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 6f4:	2b b3       	in	r18, 0x1b	; 27
+ 6f4:	25 b3       	in	r18, 0x15	; 21
  6f6:	01 e0       	ldi	r16, 0x01	; 1
  6f8:	10 e0       	ldi	r17, 0x00	; 0
  6fa:	c8 01       	movw	r24, r16
@@ -889,8 +889,8 @@ Disassembly of section .text:
  706:	e2 f7       	brpl	.-8      	; 0x700 <SSG_Mult+0x6e>
  708:	80 95       	com	r24
  70a:	82 23       	and	r24, r18
- 70c:	8b bb       	out	0x1b, r24	; 27
- 70e:	2b b3       	in	r18, 0x1b	; 27
+ 70c:	85 bb       	out	0x15, r24	; 21
+ 70e:	25 b3       	in	r18, 0x15	; 21
  710:	c8 01       	movw	r24, r16
  712:	0b 80       	ldd	r0, Y+3	; 0x03
  714:	02 c0       	rjmp	.+4      	; 0x71a <SSG_Mult+0x88>
@@ -899,7 +899,7 @@ Disassembly of section .text:
  71a:	0a 94       	dec	r0
  71c:	e2 f7       	brpl	.-8      	; 0x716 <SSG_Mult+0x84>
  71e:	28 2b       	or	r18, r24
- 720:	2b bb       	out	0x1b, r18	; 27
+ 720:	25 bb       	out	0x15, r18	; 21
  722:	70 e2       	ldi	r23, 0x20	; 32
  724:	e7 2e       	mov	r14, r23
  726:	7e e4       	ldi	r23, 0x4E	; 78
@@ -923,7 +923,7 @@ Disassembly of section .text:
  750:	82 e0       	ldi	r24, 0x02	; 2
  752:	60 81       	ld	r22, Z
  754:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 758:	2b b3       	in	r18, 0x1b	; 27
+ 758:	25 b3       	in	r18, 0x15	; 21
  75a:	01 e0       	ldi	r16, 0x01	; 1
  75c:	10 e0       	ldi	r17, 0x00	; 0
  75e:	c8 01       	movw	r24, r16
@@ -935,8 +935,8 @@ Disassembly of section .text:
  76a:	e2 f7       	brpl	.-8      	; 0x764 <SSG_Mult+0xd2>
  76c:	80 95       	com	r24
  76e:	82 23       	and	r24, r18
- 770:	8b bb       	out	0x1b, r24	; 27
- 772:	2b b3       	in	r18, 0x1b	; 27
+ 770:	85 bb       	out	0x15, r24	; 21
+ 772:	25 b3       	in	r18, 0x15	; 21
  774:	c8 01       	movw	r24, r16
  776:	0b 80       	ldd	r0, Y+3	; 0x03
  778:	02 c0       	rjmp	.+4      	; 0x77e <SSG_Mult+0xec>
@@ -945,7 +945,7 @@ Disassembly of section .text:
  77e:	0a 94       	dec	r0
  780:	e2 f7       	brpl	.-8      	; 0x77a <SSG_Mult+0xe8>
  782:	28 2b       	or	r18, r24
- 784:	2b bb       	out	0x1b, r18	; 27
+ 784:	25 bb       	out	0x15, r18	; 21
  786:	60 e2       	ldi	r22, 0x20	; 32
  788:	e6 2e       	mov	r14, r22
  78a:	6e e4       	ldi	r22, 0x4E	; 78
@@ -969,7 +969,7 @@ Disassembly of section .text:
  7b4:	83 e0       	ldi	r24, 0x03	; 3
  7b6:	60 81       	ld	r22, Z
  7b8:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 7bc:	2b b3       	in	r18, 0x1b	; 27
+ 7bc:	25 b3       	in	r18, 0x15	; 21
  7be:	01 e0       	ldi	r16, 0x01	; 1
  7c0:	10 e0       	ldi	r17, 0x00	; 0
  7c2:	c8 01       	movw	r24, r16
@@ -981,8 +981,8 @@ Disassembly of section .text:
  7ce:	e2 f7       	brpl	.-8      	; 0x7c8 <SSG_Mult+0x136>
  7d0:	80 95       	com	r24
  7d2:	82 23       	and	r24, r18
- 7d4:	8b bb       	out	0x1b, r24	; 27
- 7d6:	2b b3       	in	r18, 0x1b	; 27
+ 7d4:	85 bb       	out	0x15, r24	; 21
+ 7d6:	25 b3       	in	r18, 0x15	; 21
  7d8:	c8 01       	movw	r24, r16
  7da:	0b 80       	ldd	r0, Y+3	; 0x03
  7dc:	02 c0       	rjmp	.+4      	; 0x7e2 <SSG_Mult+0x150>
@@ -991,7 +991,7 @@ Disassembly of section .text:
  7e2:	0a 94       	dec	r0
  7e4:	e2 f7       	brpl	.-8      	; 0x7de <SSG_Mult+0x14c>
  7e6:	28 2b       	or	r18, r24
- 7e8:	2b bb       	out	0x1b, r18	; 27
+ 7e8:	25 bb       	out	0x15, r18	; 21
  7ea:	50 e2       	ldi	r21, 0x20	; 32
  7ec:	e5 2e       	mov	r14, r21
  7ee:	5e e4       	ldi	r21, 0x4E	; 78
@@ -1015,7 +1015,7 @@ Disassembly of section .text:
  818:	84 e0       	ldi	r24, 0x04	; 4
  81a:	60 81       	ld	r22, Z
  81c:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 820:	2b b3       	in	r18, 0x1b	; 27
+ 820:	25 b3       	in	r18, 0x15	; 21
  822:	01 e0       	ldi	r16, 0x01	; 1
  824:	10 e0       	ldi	r17, 0x00	; 0
  826:	c8 01       	movw	r24, r16
@@ -1027,8 +1027,8 @@ Disassembly of section .text:
  832:	e2 f7       	brpl	.-8      	; 0x82c <SSG_Mult+0x19a>
  834:	80 95       	com	r24
  836:	82 23       	and	r24, r18
- 838:	8b bb       	out	0x1b, r24	; 27
- 83a:	2b b3       	in	r18, 0x1b	; 27
+ 838:	85 bb       	out	0x15, r24	; 21
+ 83a:	25 b3       	in	r18, 0x15	; 21
  83c:	c8 01       	movw	r24, r16
  83e:	0b 80       	ldd	r0, Y+3	; 0x03
  840:	02 c0       	rjmp	.+4      	; 0x846 <SSG_Mult+0x1b4>
@@ -1037,7 +1037,7 @@ Disassembly of section .text:
  846:	0a 94       	dec	r0
  848:	e2 f7       	brpl	.-8      	; 0x842 <SSG_Mult+0x1b0>
  84a:	28 2b       	or	r18, r24
- 84c:	2b bb       	out	0x1b, r18	; 27
+ 84c:	25 bb       	out	0x15, r18	; 21
  84e:	40 e2       	ldi	r20, 0x20	; 32
  850:	e4 2e       	mov	r14, r20
  852:	4e e4       	ldi	r20, 0x4E	; 78
@@ -1052,7 +1052,7 @@ Disassembly of section .text:
  866:	84 e0       	ldi	r24, 0x04	; 4
  868:	60 81       	ld	r22, Z
  86a:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- 86e:	2b b3       	in	r18, 0x1b	; 27
+ 86e:	25 b3       	in	r18, 0x15	; 21
  870:	c8 01       	movw	r24, r16
  872:	0a 80       	ldd	r0, Y+2	; 0x02
  874:	02 c0       	rjmp	.+4      	; 0x87a <__stack+0x1b>
@@ -1061,8 +1061,8 @@ Disassembly of section .text:
  87a:	0a 94       	dec	r0
  87c:	e2 f7       	brpl	.-8      	; 0x876 <__stack+0x17>
  87e:	28 2b       	or	r18, r24
- 880:	2b bb       	out	0x1b, r18	; 27
- 882:	8b b3       	in	r24, 0x1b	; 27
+ 880:	25 bb       	out	0x15, r18	; 21
+ 882:	85 b3       	in	r24, 0x15	; 21
  884:	0b 80       	ldd	r0, Y+3	; 0x03
  886:	02 c0       	rjmp	.+4      	; 0x88c <__stack+0x2d>
  888:	00 0f       	add	r16, r16
@@ -1071,7 +1071,7 @@ Disassembly of section .text:
  88e:	e2 f7       	brpl	.-8      	; 0x888 <__stack+0x29>
  890:	00 95       	com	r16
  892:	08 23       	and	r16, r24
- 894:	0b bb       	out	0x1b, r16	; 27
+ 894:	05 bb       	out	0x15, r16	; 21
  896:	c7 01       	movw	r24, r14
  898:	01 97       	sbiw	r24, 0x01	; 1
  89a:	f1 f7       	brne	.-4      	; 0x898 <__stack+0x39>
@@ -1161,12 +1161,12 @@ Disassembly of section .text:
  946:	30 e0       	ldi	r19, 0x00	; 0
  948:	40 e0       	ldi	r20, 0x00	; 0
  94a:	50 e0       	ldi	r21, 0x00	; 0
- 94c:	0e 94 c9 05 	call	0xb92	; 0xb92 <__mulsi3>
+ 94c:	0e 94 c8 05 	call	0xb90	; 0xb90 <__mulsi3>
  950:	7b 01       	movw	r14, r22
  952:	8c 01       	movw	r16, r24
  954:	c6 01       	movw	r24, r12
  956:	b5 01       	movw	r22, r10
- 958:	0e 94 f4 05 	call	0xbe8	; 0xbe8 <__divmodsi4>
+ 958:	0e 94 f3 05 	call	0xbe6	; 0xbe6 <__divmodsi4>
  95c:	3b 01       	movw	r6, r22
  95e:	4c 01       	movw	r8, r24
  960:	6e 0c       	add	r6, r14
@@ -1179,7 +1179,7 @@ Disassembly of section .text:
  96e:	30 e0       	ldi	r19, 0x00	; 0
  970:	40 e0       	ldi	r20, 0x00	; 0
  972:	50 e0       	ldi	r21, 0x00	; 0
- 974:	0e 94 f4 05 	call	0xbe8	; 0xbe8 <__divmodsi4>
+ 974:	0e 94 f3 05 	call	0xbe6	; 0xbe6 <__divmodsi4>
  978:	c9 01       	movw	r24, r18
  97a:	da 01       	movw	r26, r20
  97c:	5c 01       	movw	r10, r24
@@ -1196,7 +1196,7 @@ Disassembly of section .text:
  992:	30 e0       	ldi	r19, 0x00	; 0
  994:	40 e0       	ldi	r20, 0x00	; 0
  996:	50 e0       	ldi	r21, 0x00	; 0
- 998:	0e 94 f4 05 	call	0xbe8	; 0xbe8 <__divmodsi4>
+ 998:	0e 94 f3 05 	call	0xbe6	; 0xbe6 <__divmodsi4>
  99c:	86 2f       	mov	r24, r22
  99e:	80 5d       	subi	r24, 0xD0	; 208
  9a0:	0e 94 55 04 	call	0x8aa	; 0x8aa <LCD_voidSendData>
@@ -1206,7 +1206,7 @@ Disassembly of section .text:
  9aa:	30 e0       	ldi	r19, 0x00	; 0
  9ac:	40 e0       	ldi	r20, 0x00	; 0
  9ae:	50 e0       	ldi	r21, 0x00	; 0
- 9b0:	0e 94 f4 05 	call	0xbe8	; 0xbe8 <__divmodsi4>
+ 9b0:	0e 94 f3 05 	call	0xbe6	; 0xbe6 <__divmodsi4>
  9b4:	c9 01       	movw	r24, r18
  9b6:	da 01       	movw	r26, r20
  9b8:	3c 01       	movw	r6, r24
@@ -1426,143 +1426,142 @@ Disassembly of section .text:
  b78:	8f 3f       	cpi	r24, 0xFF	; 255
  b7a:	d9 f3       	breq	.-10     	; 0xb72 <main+0xa>
  b7c:	0e 94 55 04 	call	0x8aa	; 0x8aa <LCD_voidSendData>
- b80:	e1 2f       	mov	r30, r17
- b82:	f0 e0       	ldi	r31, 0x00	; 0
- b84:	e2 5b       	subi	r30, 0xB2	; 178
- b86:	ff 4f       	sbci	r31, 0xFF	; 255
- b88:	83 e0       	ldi	r24, 0x03	; 3
- b8a:	60 81       	ld	r22, Z
- b8c:	0e 94 6c 00 	call	0xd8	; 0xd8 <DIO_u8SetPortValue>
- b90:	f0 cf       	rjmp	.-32     	; 0xb72 <main+0xa>
+ b80:	10 53       	subi	r17, 0x30	; 48
+ b82:	83 e0       	ldi	r24, 0x03	; 3
+ b84:	67 e0       	ldi	r22, 0x07	; 7
+ b86:	41 2f       	mov	r20, r17
+ b88:	21 e0       	ldi	r18, 0x01	; 1
+ b8a:	0e 94 bd 01 	call	0x37a	; 0x37a <SSG_ON>
+ b8e:	f1 cf       	rjmp	.-30     	; 0xb72 <main+0xa>
 
-00000b92 <__mulsi3>:
- b92:	62 9f       	mul	r22, r18
- b94:	d0 01       	movw	r26, r0
- b96:	73 9f       	mul	r23, r19
- b98:	f0 01       	movw	r30, r0
- b9a:	82 9f       	mul	r24, r18
- b9c:	e0 0d       	add	r30, r0
- b9e:	f1 1d       	adc	r31, r1
- ba0:	64 9f       	mul	r22, r20
- ba2:	e0 0d       	add	r30, r0
- ba4:	f1 1d       	adc	r31, r1
- ba6:	92 9f       	mul	r25, r18
- ba8:	f0 0d       	add	r31, r0
- baa:	83 9f       	mul	r24, r19
- bac:	f0 0d       	add	r31, r0
- bae:	74 9f       	mul	r23, r20
- bb0:	f0 0d       	add	r31, r0
- bb2:	65 9f       	mul	r22, r21
- bb4:	f0 0d       	add	r31, r0
- bb6:	99 27       	eor	r25, r25
- bb8:	72 9f       	mul	r23, r18
- bba:	b0 0d       	add	r27, r0
- bbc:	e1 1d       	adc	r30, r1
- bbe:	f9 1f       	adc	r31, r25
- bc0:	63 9f       	mul	r22, r19
- bc2:	b0 0d       	add	r27, r0
- bc4:	e1 1d       	adc	r30, r1
- bc6:	f9 1f       	adc	r31, r25
- bc8:	bd 01       	movw	r22, r26
- bca:	cf 01       	movw	r24, r30
- bcc:	11 24       	eor	r1, r1
- bce:	08 95       	ret
+00000b90 <__mulsi3>:
+ b90:	62 9f       	mul	r22, r18
+ b92:	d0 01       	movw	r26, r0
+ b94:	73 9f       	mul	r23, r19
+ b96:	f0 01       	movw	r30, r0
+ b98:	82 9f       	mul	r24, r18
+ b9a:	e0 0d       	add	r30, r0
+ b9c:	f1 1d       	adc	r31, r1
+ b9e:	64 9f       	mul	r22, r20
+ ba0:	e0 0d       	add	r30, r0
+ ba2:	f1 1d       	adc	r31, r1
+ ba4:	92 9f       	mul	r25, r18
+ ba6:	f0 0d       	add	r31, r0
+ ba8:	83 9f       	mul	r24, r19
+ baa:	f0 0d       	add	r31, r0
+ bac:	74 9f       	mul	r23, r20
+ bae:	f0 0d       	add	r31, r0
+ bb0:	65 9f       	mul	r22, r21
+ bb2:	f0 0d       	add	r31, r0
+ bb4:	99 27       	eor	r25, r25
+ bb6:	72 9f       	mul	r23, r18
+ bb8:	b0 0d       	add	r27, r0
+ bba:	e1 1d       	adc	r30, r1
+ bbc:	f9 1f       	adc	r31, r25
+ bbe:	63 9f       	mul	r22, r19
+ bc0:	b0 0d       	add	r27, r0
+ bc2:	e1 1d       	adc	r30, r1
+ bc4:	f9 1f       	adc	r31, r25
+ bc6:	bd 01       	movw	r22, r26
+ bc8:	cf 01       	movw	r24, r30
+ bca:	11 24       	eor	r1, r1
+ bcc:	08 95       	ret
 
-00000bd0 <__udivmodqi4>:
- bd0:	99 1b       	sub	r25, r25
- bd2:	79 e0       	ldi	r23, 0x09	; 9
- bd4:	04 c0       	rjmp	.+8      	; 0xbde <__udivmodqi4_ep>
+00000bce <__udivmodqi4>:
+ bce:	99 1b       	sub	r25, r25
+ bd0:	79 e0       	ldi	r23, 0x09	; 9
+ bd2:	04 c0       	rjmp	.+8      	; 0xbdc <__udivmodqi4_ep>
 
-00000bd6 <__udivmodqi4_loop>:
- bd6:	99 1f       	adc	r25, r25
- bd8:	96 17       	cp	r25, r22
- bda:	08 f0       	brcs	.+2      	; 0xbde <__udivmodqi4_ep>
- bdc:	96 1b       	sub	r25, r22
+00000bd4 <__udivmodqi4_loop>:
+ bd4:	99 1f       	adc	r25, r25
+ bd6:	96 17       	cp	r25, r22
+ bd8:	08 f0       	brcs	.+2      	; 0xbdc <__udivmodqi4_ep>
+ bda:	96 1b       	sub	r25, r22
 
-00000bde <__udivmodqi4_ep>:
- bde:	88 1f       	adc	r24, r24
- be0:	7a 95       	dec	r23
- be2:	c9 f7       	brne	.-14     	; 0xbd6 <__udivmodqi4_loop>
- be4:	80 95       	com	r24
- be6:	08 95       	ret
+00000bdc <__udivmodqi4_ep>:
+ bdc:	88 1f       	adc	r24, r24
+ bde:	7a 95       	dec	r23
+ be0:	c9 f7       	brne	.-14     	; 0xbd4 <__udivmodqi4_loop>
+ be2:	80 95       	com	r24
+ be4:	08 95       	ret
 
-00000be8 <__divmodsi4>:
- be8:	97 fb       	bst	r25, 7
- bea:	09 2e       	mov	r0, r25
- bec:	05 26       	eor	r0, r21
- bee:	0e d0       	rcall	.+28     	; 0xc0c <__divmodsi4_neg1>
- bf0:	57 fd       	sbrc	r21, 7
- bf2:	04 d0       	rcall	.+8      	; 0xbfc <__divmodsi4_neg2>
- bf4:	14 d0       	rcall	.+40     	; 0xc1e <__udivmodsi4>
- bf6:	0a d0       	rcall	.+20     	; 0xc0c <__divmodsi4_neg1>
- bf8:	00 1c       	adc	r0, r0
- bfa:	38 f4       	brcc	.+14     	; 0xc0a <__divmodsi4_exit>
+00000be6 <__divmodsi4>:
+ be6:	97 fb       	bst	r25, 7
+ be8:	09 2e       	mov	r0, r25
+ bea:	05 26       	eor	r0, r21
+ bec:	0e d0       	rcall	.+28     	; 0xc0a <__divmodsi4_neg1>
+ bee:	57 fd       	sbrc	r21, 7
+ bf0:	04 d0       	rcall	.+8      	; 0xbfa <__divmodsi4_neg2>
+ bf2:	14 d0       	rcall	.+40     	; 0xc1c <__udivmodsi4>
+ bf4:	0a d0       	rcall	.+20     	; 0xc0a <__divmodsi4_neg1>
+ bf6:	00 1c       	adc	r0, r0
+ bf8:	38 f4       	brcc	.+14     	; 0xc08 <__divmodsi4_exit>
 
-00000bfc <__divmodsi4_neg2>:
- bfc:	50 95       	com	r21
- bfe:	40 95       	com	r20
- c00:	30 95       	com	r19
- c02:	21 95       	neg	r18
- c04:	3f 4f       	sbci	r19, 0xFF	; 255
- c06:	4f 4f       	sbci	r20, 0xFF	; 255
- c08:	5f 4f       	sbci	r21, 0xFF	; 255
+00000bfa <__divmodsi4_neg2>:
+ bfa:	50 95       	com	r21
+ bfc:	40 95       	com	r20
+ bfe:	30 95       	com	r19
+ c00:	21 95       	neg	r18
+ c02:	3f 4f       	sbci	r19, 0xFF	; 255
+ c04:	4f 4f       	sbci	r20, 0xFF	; 255
+ c06:	5f 4f       	sbci	r21, 0xFF	; 255
 
-00000c0a <__divmodsi4_exit>:
- c0a:	08 95       	ret
+00000c08 <__divmodsi4_exit>:
+ c08:	08 95       	ret
 
-00000c0c <__divmodsi4_neg1>:
- c0c:	f6 f7       	brtc	.-4      	; 0xc0a <__divmodsi4_exit>
- c0e:	90 95       	com	r25
- c10:	80 95       	com	r24
- c12:	70 95       	com	r23
- c14:	61 95       	neg	r22
- c16:	7f 4f       	sbci	r23, 0xFF	; 255
- c18:	8f 4f       	sbci	r24, 0xFF	; 255
- c1a:	9f 4f       	sbci	r25, 0xFF	; 255
- c1c:	08 95       	ret
+00000c0a <__divmodsi4_neg1>:
+ c0a:	f6 f7       	brtc	.-4      	; 0xc08 <__divmodsi4_exit>
+ c0c:	90 95       	com	r25
+ c0e:	80 95       	com	r24
+ c10:	70 95       	com	r23
+ c12:	61 95       	neg	r22
+ c14:	7f 4f       	sbci	r23, 0xFF	; 255
+ c16:	8f 4f       	sbci	r24, 0xFF	; 255
+ c18:	9f 4f       	sbci	r25, 0xFF	; 255
+ c1a:	08 95       	ret
 
-00000c1e <__udivmodsi4>:
- c1e:	a1 e2       	ldi	r26, 0x21	; 33
- c20:	1a 2e       	mov	r1, r26
- c22:	aa 1b       	sub	r26, r26
- c24:	bb 1b       	sub	r27, r27
- c26:	fd 01       	movw	r30, r26
- c28:	0d c0       	rjmp	.+26     	; 0xc44 <__udivmodsi4_ep>
+00000c1c <__udivmodsi4>:
+ c1c:	a1 e2       	ldi	r26, 0x21	; 33
+ c1e:	1a 2e       	mov	r1, r26
+ c20:	aa 1b       	sub	r26, r26
+ c22:	bb 1b       	sub	r27, r27
+ c24:	fd 01       	movw	r30, r26
+ c26:	0d c0       	rjmp	.+26     	; 0xc42 <__udivmodsi4_ep>
 
-00000c2a <__udivmodsi4_loop>:
- c2a:	aa 1f       	adc	r26, r26
- c2c:	bb 1f       	adc	r27, r27
- c2e:	ee 1f       	adc	r30, r30
- c30:	ff 1f       	adc	r31, r31
- c32:	a2 17       	cp	r26, r18
- c34:	b3 07       	cpc	r27, r19
- c36:	e4 07       	cpc	r30, r20
- c38:	f5 07       	cpc	r31, r21
- c3a:	20 f0       	brcs	.+8      	; 0xc44 <__udivmodsi4_ep>
- c3c:	a2 1b       	sub	r26, r18
- c3e:	b3 0b       	sbc	r27, r19
- c40:	e4 0b       	sbc	r30, r20
- c42:	f5 0b       	sbc	r31, r21
+00000c28 <__udivmodsi4_loop>:
+ c28:	aa 1f       	adc	r26, r26
+ c2a:	bb 1f       	adc	r27, r27
+ c2c:	ee 1f       	adc	r30, r30
+ c2e:	ff 1f       	adc	r31, r31
+ c30:	a2 17       	cp	r26, r18
+ c32:	b3 07       	cpc	r27, r19
+ c34:	e4 07       	cpc	r30, r20
+ c36:	f5 07       	cpc	r31, r21
+ c38:	20 f0       	brcs	.+8      	; 0xc42 <__udivmodsi4_ep>
+ c3a:	a2 1b       	sub	r26, r18
+ c3c:	b3 0b       	sbc	r27, r19
+ c3e:	e4 0b       	sbc	r30, r20
+ c40:	f5 0b       	sbc	r31, r21
 
-00000c44 <__udivmodsi4_ep>:
- c44:	66 1f       	adc	r22, r22
- c46:	77 1f       	adc	r23, r23
- c48:	88 1f       	adc	r24, r24
- c4a:	99 1f       	adc	r25, r25
- c4c:	1a 94       	dec	r1
- c4e:	69 f7       	brne	.-38     	; 0xc2a <__udivmodsi4_loop>
- c50:	60 95       	com	r22
- c52:	70 95       	com	r23
- c54:	80 95       	com	r24
- c56:	90 95       	com	r25
- c58:	9b 01       	movw	r18, r22
- c5a:	ac 01       	movw	r20, r24
- c5c:	bd 01       	movw	r22, r26
- c5e:	cf 01       	movw	r24, r30
- c60:	08 95       	ret
+00000c42 <__udivmodsi4_ep>:
+ c42:	66 1f       	adc	r22, r22
+ c44:	77 1f       	adc	r23, r23
+ c46:	88 1f       	adc	r24, r24
+ c48:	99 1f       	adc	r25, r25
+ c4a:	1a 94       	dec	r1
+ c4c:	69 f7       	brne	.-38     	; 0xc28 <__udivmodsi4_loop>
+ c4e:	60 95       	com	r22
+ c50:	70 95       	com	r23
+ c52:	80 95       	com	r24
+ c54:	90 95       	com	r25
+ c56:	9b 01       	movw	r18, r22
+ c58:	ac 01       	movw	r20, r24
+ c5a:	bd 01       	movw	r22, r26
+ c5c:	cf 01       	movw	r24, r30
+ c5e:	08 95       	ret
 
-00000c62 <_exit>:
- c62:	f8 94       	cli
+00000c60 <_exit>:
+ c60:	f8 94       	cli
 
-00000c64 <__stop_program>:
- c64:	ff cf       	rjmp	.-2      	; 0xc64 <__stop_program>
+00000c62 <__stop_program>:
+ c62:	ff cf       	rjmp	.-2      	; 0xc62 <__stop_program>

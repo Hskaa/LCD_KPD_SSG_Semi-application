@@ -45,8 +45,8 @@ int main()
 			Local_u8PressedKey=KPD_u8GetPressedKey();
 		}while(Local_u8PressedKey==0XFF);
 		LCD_voidSendData(Local_u8PressedKey);
-		DIO_u8SetPortValue(DIO_PORTC,SSG_Num[Local_u8PressedKey-48]);
 
+		SSG_ON(DIO_PORTC,DIO_PIN7,Local_u8PressedKey-48,CATHODE);
 /*
 		switch(Local_u8PressedKey)
 		{
